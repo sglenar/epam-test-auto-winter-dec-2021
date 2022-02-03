@@ -14,6 +14,7 @@
     <testng.version>7.5</testng.version>
     <checkstyle.version>9.2.1</checkstyle.version>
     <assertj-core.version>3.22.0</assertj-core.version>
+    <selenium.version>4.1.1</selenium.version>
 
     <testng.configs.path>${project.build.testOutputDirectory}</testng.configs.path>
   </properties>
@@ -30,6 +31,11 @@
       <artifactId>assertj-core</artifactId>
       <version>${assertj-core.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
     </dependency>
   </dependencies>
 
