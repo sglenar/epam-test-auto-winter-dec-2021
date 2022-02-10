@@ -4,6 +4,7 @@ import com.epam.tc.lesson04.storynames.Tags;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
@@ -39,6 +40,7 @@ public class LoginUtilsTest {
     @Test
     @Story(Tags.DEFAULT_USER_LOGIN)
     @Severity(SeverityLevel.BLOCKER)
+    @Owner("Bob Ivanovich")
     public void defaultUserLogin() {
         Assertions.assertThatCode(() -> LoginUtils.login(LoginUtils.DEFAULT_USER))
                   .doesNotThrowAnyException();
