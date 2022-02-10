@@ -17,6 +17,12 @@
     <selenium.version>4.1.1</selenium.version>
     <webdrivermanager.version>5.0.3</webdrivermanager.version>
     <javafaker.version>1.0.2</javafaker.version>
+    <slf4j-simple.version>1.7.30</slf4j-simple.version>
+    <lombok.version>1.18.20</lombok.version>
+    <allure-testng.version>2.13.2</allure-testng.version>
+    <commons-io.version>2.7</commons-io.version>
+    <aspectj.version>1.9.5</aspectj.version>
+    <allure-maven.version>2.10.0</allure-maven.version>
 
     <testng.configs.path>${project.build.testOutputDirectory}</testng.configs.path>
 
@@ -54,6 +60,27 @@
       <artifactId>javafaker</artifactId>
       <version>${javafaker.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j-simple.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure-testng.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -73,10 +100,18 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
+          <argLine>--illegal-access=permit -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
           <suiteXmlFiles>
             <suiteXmlFile>${testng.suite.file}</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -129,5 +164,23 @@
         <testng.suite.file>${testng.configs.path}/DemonstrationForTestNgXmlPackage.xml</testng.suite.file>
       </properties>
     </profile>
+    <profile>
+      <id>allureDemo</id>
+      <properties>
+        <testng.suite.file>${testng.configs.path}/Lesson04Allure.xml</testng.suite.file>
+      </properties>
+    </profile>
   </profiles>
+
+  <reporting>
+    <excludeDefaults>true</excludeDefaults>
+    <plugins>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>${allure-maven.version}</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
 </project>
