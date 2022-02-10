@@ -4,11 +4,10 @@ import static io.qameta.allure.Allure.step;
 
 import com.epam.tc.lesson04.utils.AttachmentUtils;
 import io.qameta.allure.Description;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import lombok.SneakyThrows;
-import org.apache.tika.io.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -23,12 +22,12 @@ public class DemoNamingAndDescriptionTest {
     }
 
     @Test
-    public void testWithoutTestName() {
+    public void testWithoutTestNameTakesNameFromMethod() {
         step("nop");
     }
 
     @Test(description = "This is test name (@Test)")
-    @Description("This is test description (@Description")
+    @Description("This is test description (@Description)")
     public void descriptionAnnotationJavadocDescriptionTest() {
         step("step 1");
     }
@@ -48,8 +47,7 @@ public class DemoNamingAndDescriptionTest {
     @SneakyThrows
     @Test
     public void attachCatPicture() {
-        try (InputStream is = new URL(CAT_URL).openStream()) {
-            AttachmentUtils.attachPngImage("Everybody loves cat", IOUtils.toByteArray(is));
-        }
+        byte[] source = IOUtils.toByteArray(new URL(CAT_URL));
+        AttachmentUtils.attachPngImage("Everybody loves cat", source);
     }
 }
