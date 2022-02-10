@@ -8,8 +8,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class AttachmentUtils {
 
-    public void attachString(String attachmentName,
-                             String attachment) {
+    public void attachString(String attachmentName, String attachment) {
         Allure.addAttachment(attachmentName, attachment);
     }
 
@@ -19,8 +18,7 @@ public class AttachmentUtils {
     }
 
     @Attachment(type = "image/png", value = "Try to use name {attachmentName}")
-    public byte[] attachPngImage(String attachmentName,
-                                 byte[] source) {
+    public byte[] attachPngImage(String attachmentName, byte[] source) {
         return source;
     }
 }
