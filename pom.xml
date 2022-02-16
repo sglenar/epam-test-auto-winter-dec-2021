@@ -23,6 +23,7 @@
     <commons-io.version>2.11.0</commons-io.version>
     <aspectj.version>1.9.7</aspectj.version>
     <allure-maven.version>2.11.2</allure-maven.version>
+    <cucumber.version>7.2.3</cucumber.version>
 
     <testng.configs.path>${project.build.testOutputDirectory}</testng.configs.path>
 
@@ -80,6 +81,18 @@
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>${commons-io.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>${cucumber.version}</version>
     </dependency>
   </dependencies>
 
@@ -170,6 +183,24 @@
       <id>allureDemo</id>
       <properties>
         <testng.suite.file>${testng.configs.path}/Lesson04Allure.xml</testng.suite.file>
+      </properties>
+    </profile>
+    <profile>
+      <id>lesson05-java-pure</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <properties>
+        <testng.suite.file>${project.basedir}/src/test/resources/com/epam/tc/lesson05/lesson5.pure.java.suite.xml</testng.suite.file>
+      </properties>
+    </profile>
+    <profile>
+      <id>lesson05-cucumber</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <properties>
+        <testng.suite.file>${project.basedir}/src/test/resources/com/epam/tc/lesson05/lesson5.cucumber.suite.xml</testng.suite.file>
       </properties>
     </profile>
   </profiles>
