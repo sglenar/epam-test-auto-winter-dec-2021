@@ -1,4 +1,4 @@
-package com.epam.tc.lesson05.page;
+package com.epam.tc.lesson06.page;
 
 import java.util.List;
 import java.util.stream.Collectors;
