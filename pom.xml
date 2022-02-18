@@ -203,6 +203,16 @@
         <testng.suite.file>${project.basedir}/src/test/resources/com/epam/tc/lesson05/lesson5.cucumber.suite.xml</testng.suite.file>
       </properties>
     </profile>
+
+    <profile>
+      <id>lesson06-selenium-grid</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <properties>
+        <testng.suite.file>${project.basedir}/src/test/resources/com/epam/tc/lesson06/lesson06.selenium.grid.suite.xml</testng.suite.file>
+      </properties>
+    </profile>
   </profiles>
 
   <reporting>
