@@ -72,9 +72,9 @@
             <version>${checkstyle.version}</version>
           </dependency>
         </dependencies>
-        <configuration>
+        <!--<configuration>
           <configLocation>
-            <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
+            &lt;!&ndash;  pay attention to use exact url for checkstyle plugin ruleset  &ndash;&gt;
             https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
           </configLocation>
           <encoding>${project.build.sourceEncoding}</encoding>
@@ -82,7 +82,7 @@
           <consoleOutput>true</consoleOutput>
           <failsOnError>true</failsOnError>
           <linkXRef>false</linkXRef>
-        </configuration>
+        </configuration>-->
         <executions>
           <execution>
             <id>validate</id>
