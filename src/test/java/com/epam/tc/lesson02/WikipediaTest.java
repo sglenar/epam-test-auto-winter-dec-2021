@@ -22,7 +22,7 @@ public class WikipediaTest {
     @BeforeMethod
     public void setUp() {
         //String path = requireNonNull(getClass().getClassLoader().getResource("chromedriver.exe")).getPath();
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Lenar_Sagidullin\\Desktop\\Test Automation (LT)\\epam-test-auto-winter-dec-2021\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/data/SlaveForATCourse/workspace/Task 3/src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
