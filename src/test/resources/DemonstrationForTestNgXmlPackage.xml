@@ -2,7 +2,7 @@
 <suite name="suite for package">
   <test name="second test">
     <packages>
-      <package name="com.epam.tc.lesson01.utils"/>
+      <package name="com.epam.tc.lesson02"/>
     </packages>
   </test>
 </suite>
